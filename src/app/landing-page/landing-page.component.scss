@@ -1,0 +1,16 @@
+.wave-top {
+  height: 50vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.wave-top-title {
+  height: 25vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
