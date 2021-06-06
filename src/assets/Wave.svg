@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+<g mask="url(&quot;#SvgjsMask1087&quot;)" fill="none">
+    <defs>
+      <linearGradient id="WaveBottom1" gradientTransform="rotate(75)">
+        <stop offset="0%" stop-color="#F60" />
+        <stop offset="100%" stop-color="#FF6" />
+      </linearGradient>
+    </defs>
+    <defs>
+      <linearGradient id="WaveBottom2" gradientTransform="rotate(75)">
+        <stop offset="0%" stop-color="#F60" />
+        <stop offset="100%" stop-color="#FF6" />
+      </linearGradient>
+    </defs>
+<path d="M 0,156 C 72,124.8 216,-6 360,0 C 504,6 576,171.2 720,186 C 864,200.8 936,75.4 1080,74 C 1224,72.6 1368,158 1440,179L1440 560L0 560z" fill="url(#WaveBottom1)"></path>
+<path d="M 0,321 C 96,308.4 288,252.2 480,258 C 672,263.8 768,346.2 960,350 C 1152,353.8 1344,291.6 1440,277L1440 560L0 560z" fill="url(#WaveBottom2)"></path>
+<path d="M 0,433 C 144,444.4 432,494.4 720,490 C 1008,485.6 1296,426.8 1440,411L1440 560L0 560z" fill="rgba(255, 255, 255, 1)"></path></g><defs><mask id="SvgjsMask1087"><rect width="1440" height="560" fill="#ffffff"></rect></mask></defs></svg>
