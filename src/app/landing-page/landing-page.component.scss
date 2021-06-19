@@ -44,7 +44,7 @@
 }
 
 .secondPart {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bg {
@@ -85,6 +85,6 @@
     z-index: -1;
   }
   .secondPart {
-    margin-top: 25vh;
+    margin-top: 5vh;
   }
 }
