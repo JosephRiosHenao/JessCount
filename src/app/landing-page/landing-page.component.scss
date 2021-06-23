@@ -76,6 +76,19 @@
 //   margin:0 auto;
 // }
 
+.row {
+  --bs-gutter-x: 0;
+}
+.buttonCustom {
+  background-color: transparent;
+  color: white;
+  border: 5px solid white;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  
+}
+
 @media only screen and (max-width: 600px) {
   .icon-logo {
     width: 80vw; 
