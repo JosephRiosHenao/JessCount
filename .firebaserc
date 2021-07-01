@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "jesscount-1bff0": {
+      "hosting": {
+        "JessCount": [
+          "jesscount-1bff0"
+        ]
+      }
+    }
+  }
+}
