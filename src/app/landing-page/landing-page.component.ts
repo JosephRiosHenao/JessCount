@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  public loginState:boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
