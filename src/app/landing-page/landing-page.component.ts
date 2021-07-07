@@ -1,3 +1,4 @@
+import { AccountService } from './../services/account.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class LandingPageComponent implements OnInit {
 
   public loginState:boolean = true;
 
-  constructor() { }
+  constructor(private loginService:AccountService) { }
 
   ngOnInit(): void {
   }
