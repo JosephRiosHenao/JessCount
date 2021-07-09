@@ -30,7 +30,7 @@ export class AccountService {
       return false;
     })  
   }
-
+// error
   async registerEmail(email:string, pass:string):Promise<boolean>{
     this.authFire.createUserWithEmailAndPassword(email,pass).then((user)=>{
       this.user = user;
