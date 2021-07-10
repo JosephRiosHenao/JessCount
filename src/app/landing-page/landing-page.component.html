@@ -114,66 +114,7 @@
   </div>
   <div class="row row-cols-sm-1 row-cols-md-2 align-self-center align-items-center align-content-center" style="position: relative;">
     <div class="col align-self-center align-items-center align-content-center" style="z-index: 2;">
-
-      <div *ngIf="loginState; else registerForm;">
-        <form>
-          <h1 class="text-white text-center fw-bold">INICIAR SESION</h1>
-          <div class="form-floating centerCustom mb-2">
-            <input type="email" class="form-control formCustom m-auto text-center" style="position: relative;" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput " style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">EMAIL</label>
-          </div>
-          <div class="form-floating centerCustom mb-3">
-            <input type="password" class="form-control formCustom m-auto text-center" style="position: relative;" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput " style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">CONTRASENIA</label>
-          </div>
-          <div class="text-center mb-3">
-            <a (click)="loginState = !loginState" style="color: white; font-weight: bold; position: relative; cursor: pointer;">No tienes una cuenta con correo?</a>
-          </div>
-          <p class="text-center" style="width: 100%; position: relative;">
-            <button class="buttonCustom shadow-lg m-auto">INICIAR SESION</button>
-          </p>
-        </form>
-        <div class="text-center ">
-          <p class="text-white fs-3 fw-bolder"> -- O -- </p>
-          <button class="mediaButtons me-2" style="color: blue;"><i class="fab fa-facebook fa-3x"></i></button>
-          <button class="mediaButtons ms-2" style="color: red; width: 68px; height: 68px;"><i class="fab fa-google fa-3x"></i></button>
-        </div>
-      </div>
-
-
-      <ng-template #registerForm>
-        <form>
-          <h1 class="text-white text-center fw-bold">REGISTRARSE</h1>
-          <div class="form-floating centerCustom mb-2">
-            <input type="text" class="form-control formCustom m-auto text-center" style="position: relative;" id="floatingInput" placeholder="Digite su nombre">
-            <label for="floatingInput " style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">NOMBRE</label>
-          </div>
-          <div class="form-floating centerCustom mb-2">
-            <input type="email" class="form-control formCustom m-auto text-center" style="position: relative;" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput " style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">EMAIL</label>
-          </div>
-          <div class="form-floating centerCustom mb-2">
-            <input type="password" class="form-control formCustom m-auto text-center" style="position: relative;" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput " style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">CONTRASENIA</label>
-          </div>
-          <div class="form-floating centerCustom mb-3">
-            <select class="form-select formCustom m-auto text-center" id="floatingSelectGrid" aria-label="Floating label select example" style="position: relative; text-align-last: center;">
-              <option class="text-center" selected disabled>Seleccione una opcion</option>
-              <option value="1" >Administrador</option>
-              <option value="2">Cliente</option>
-            </select>
-            <label for="floatingSelectGrid" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);">ROL</label>
-          </div>
-          <div class="text-center mb-3">
-            <a (click)="loginState = !loginState" style="color: white; font-weight: bold; position: relative; cursor: pointer;">Tienes una cuenta con correo?</a>
-          </div>
-          <p class="text-center">
-            <button class="buttonCustom shadow-lg m-auto">REGISTRARSE</button>
-          </p>
-        </form>
-      </ng-template>
-      
-      
+      <app-login></app-login>
     </div>
     <div class="col" style="z-index: 3;">
       <br>
@@ -182,7 +123,7 @@
         <img src="../../assets/HandShake.svg" style="height: 45vh; overflow: hidden; object-fit: cover; max-width: 40vw;" alt="">
       </p>
     </div>
-  </div>
+  </div>  
   <div style="height: 90vh; width: 95%; overflow: hidden; position: absolute; right: 0; bottom: 0; z-index: 1;" class="d-none d-sm-none d-md-block" >
     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
       <path d="M241.82,-3.45 C335.50,95.22 140.24,72.53 211.34,149.50 L500.00,150.00 L500.00,0.00 Z" style="stroke: none;" fill="rgba(255,255,255,0.3)"></path>

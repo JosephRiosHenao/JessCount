@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { environment } from 'src/environments/environment';
     FooterComponent,
     HomeComponent,
     LandingPageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

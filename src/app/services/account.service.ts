@@ -13,28 +13,23 @@ export class AccountService {
 
   loginEmail(email:string, pass:string){
     this.authFire.signInWithEmailAndPassword(email,pass).then((user)=>{
-      this.user = user;
       return true;
     }).catch((error)=>{
       console.error(error);
-      return false;
     })
   }
 
-  loginGmail():boolean{
+  loginGmail(){
     this.authFire.signInWithPopup( new firebase.auth.GoogleAuthProvider ).then((user)=>{
       this.user = user;
-      return true;
     }).catch((error)=>{
       console.error(error);
-      return false;
     })  
   }
-// error
-  async registerEmail(email:string, pass:string):Promise<boolean>{
+
+  registerEmail(email:string, pass:string){
     this.authFire.createUserWithEmailAndPassword(email,pass).then((user)=>{
       this.user = user;
-      return true;
     }).catch((error)=>{
       console.error(error);
     })  
