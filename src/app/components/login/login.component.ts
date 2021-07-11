@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
 
+  formLogin:FormGroup | undefined;
+  formRegister:FormGroup | undefined;
+
   public loginState:boolean = true;
 
-  public email:string = "";
-  public pass:string = "";
-  
-  constructor() { }
+  constructor( private formsBuilder:FormBuilder ) { }
 
   ngOnInit(): void {
+    this.createForms();
+  }
+
+  createForms(){
+    this.formLogin = this.formsBuilder.group({
+      email : ['', Validators.compose([Validators.required, Validators.email])],
+      pass : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
+    });
+    
+    this.formRegister = this.formsBuilder.group({
+      email : ['', Validators.compose([Validators.required, Validators.email])],
+      pass : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
+    })
   }
 
 }
