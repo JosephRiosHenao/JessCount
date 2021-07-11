@@ -12,6 +12,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StartedComponent } from './components/started/started.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     LandingPageComponent,
     LoginComponent,
+    DashboardComponent,
+    StartedComponent,
   ],
   imports: [
     BrowserModule,
