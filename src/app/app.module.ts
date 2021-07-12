@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StartedComponent } from './components/started/started.component';
+import { NavbarSideComponent } from './components/navbar-side/navbar-side.component';
+import { GettingStartedComponent } from './components/getting-started/getting-started.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { StartedComponent } from './components/started/started.component';
     LoginComponent,
     DashboardComponent,
     StartedComponent,
+    NavbarSideComponent,
+    GettingStartedComponent,
   ],
   imports: [
     BrowserModule,
