@@ -1,0 +1,40 @@
+
+.formCustom{
+    width: 40vw;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  // .centerCustom {
+  //   width: 100vw;
+  //   display:flex;
+  //   margin:0 auto;
+  // }
+  
+  .row {
+    --bs-gutter-x: 0;
+  }
+  
+  .buttonCustom {
+    background-color: transparent;
+    color: white;
+    border: 5px solid white;
+    padding: 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    
+  }
+  
+  .mediaButtons{
+    background-color: white;
+    border-radius: 50%;
+    padding: .5rem;
+    border-color: transparent;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .formCustom {
+      width: 80vw;
+    }
+  }
