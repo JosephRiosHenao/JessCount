@@ -1,5 +1,7 @@
 
-<!-- <app-header></app-header> -->
-<app-navbar-side></app-navbar-side>
-<router-outlet></router-outlet>
+<app-navbar-side *ngIf="router.url != '/'"></app-navbar-side>
+<section class="home-section">
+    <router-outlet [ngClass]="{'active': router.url != '/'}"></router-outlet>
+</section>
+  
 <!-- <app-footer></app-footer> -->

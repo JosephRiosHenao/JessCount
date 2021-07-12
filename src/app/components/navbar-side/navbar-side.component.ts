@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-side',
@@ -6,16 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-side.component.scss']
 })
 export class NavbarSideComponent implements OnInit {
+  sidebar: any;
+  closeBtn: any;
+  searchBtn: any;
 
-  constructor() { }
+  constructor( public router:Router) { }
 
   ngOnInit(): void {
+    
+      this.sidebar = document.querySelector(".sidebar");
+      this.closeBtn = document.querySelector("#btn");
+      this.searchBtn = document.querySelector(".bx-search");
+
   }
 
-  sidebar = document.querySelector(".sidebar");
-  closeBtn = document.querySelector("#btn");
-  searchBtn = document.querySelector(".bx-search");
+  open(){
+    this.sidebar?.classList.toggle("open");
+    this.menuBtnChange();
+    console.log(this.router.url)
+  }
 
+  menuBtnChange(){
+    if(this.sidebar?.classList.contains("open")){
+      this.closeBtn?.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+    }else {
+      this.closeBtn?.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+    }
+  }
 // closeBtn.addEventListener("click", ()=>{
 //   sidebar.classList.toggle("open");
 //   menuBtnChange();//calling the function(optional)
