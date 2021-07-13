@@ -15,6 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarSideComponent } from './components/navbar-side/navbar-side.component';
 import { GettingStartedComponent } from './components/getting-started/getting-started.component';
+import { SuppliersComponent } from './components/suppliers/suppliers.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SalesComponent } from './components/sales/sales.component';
+import { ConfigComponent } from './components/config/config.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +34,13 @@ import { GettingStartedComponent } from './components/getting-started/getting-st
     DashboardComponent,
     NavbarSideComponent,
     GettingStartedComponent,
+    SuppliersComponent,
+    StatisticsComponent,
+    ProductsComponent,
+    SalesComponent,
+    ConfigComponent,
+    ProfileComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
