@@ -12,49 +12,49 @@
       <span class="tooltip">Search</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/home']" routerLinkActive="active">
         <i class="bx bx-grid-alt"></i>
         <span class="links_name">Inicio</span>
       </a>
       <span class="tooltip">Inicio</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/suppliers']" routerLinkActive="active" >
         <i class="bx bx-user"></i>
         <span class="links_name">Proveedores</span>
       </a>
       <span class="tooltip">Proveedores</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/statistics']" routerLinkActive="active" >
         <i class="bx bx-pie-chart-alt-2"></i>
         <span class="links_name">Estadisticas</span>
       </a>
       <span class="tooltip">Estadisticas</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/products']" routerLinkActive="active" >
         <i class="bx bx-folder"></i>
         <span class="links_name">Productos</span>
       </a>
       <span class="tooltip">Productos</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/sales']" routerLinkActive="active" >
         <i class="bx bx-cart-alt"></i>
         <span class="links_name">Compras</span>
       </a>
       <span class="tooltip">Compras</span>
     </li>
     <li>
-      <a href="#">
+      <a [routerLink]="['/config']" routerLinkActive="active" >
         <i class="bx bx-cog"></i>
         <span class="links_name">Configuracion</span>
       </a>
       <span class="tooltip">Configuracion</span>
     </li>
     <li class="profile">
-      <div class="profile-details">
+      <div class="profile-details" [routerLink]="['/profile']">
         <img src="profile.jpg" alt="profileImg">
         <div class="name_job">
           <div class="name">Usuario</div>

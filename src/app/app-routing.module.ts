@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'getting-started', component: GettingStartedComponent},
   {path:'home', component: HomeComponent},
   {path:'suppliers', component: SuppliersComponent},
-  {path:'statistics', component: StatisticsComponent},
+  {path:'statistics', component: StatisticsComponent},  
   {path:'products', component: ProductsComponent},
   {path:'sales', component: SalesComponent},
   {path:'config', component: ConfigComponent},
