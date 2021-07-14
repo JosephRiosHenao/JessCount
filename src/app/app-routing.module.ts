@@ -13,6 +13,8 @@ import { GettingStartedComponent } from './components/getting-started/getting-st
 
 const routes: Routes = [
   {path:'', component: LandingPageComponent},
+
+  // With LogIn
   {path:'getting-started', component: GettingStartedComponent},
   {path:'home', component: HomeComponent},
   {path:'suppliers', component: SuppliersComponent},
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'sales', component: SalesComponent},
   {path:'config', component: ConfigComponent},
   {path:'profile', component: ProfileComponent},
+
+
   {path:'**', component: NotFoundComponent}
 ];
 

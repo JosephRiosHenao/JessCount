@@ -11,6 +11,6 @@ export class AppComponent {
   public activeNavbar:boolean = true;
 
   constructor( public router:Router ){
-    console.log(router.url)
+    console.log(router.url.split('#')[0])
   }
 }
