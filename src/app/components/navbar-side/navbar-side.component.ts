@@ -1,3 +1,4 @@
+import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class NavbarSideComponent implements OnInit {
   closeBtn: any;
   searchBtn: any;
 
-  constructor( public router:Router) { }
+  constructor( public router:Router, private account:AccountService) { }
 
   ngOnInit(): void {
     
@@ -34,6 +35,11 @@ export class NavbarSideComponent implements OnInit {
       this.closeBtn?.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
     }
   }
+
+  logOut(){
+    this.account.logOut();
+  }
+
 // closeBtn.addEventListener("click", ()=>{
 //   sidebar.classList.toggle("open");
 //   menuBtnChange();//calling the function(optional)

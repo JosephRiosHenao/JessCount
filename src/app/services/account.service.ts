@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
@@ -7,7 +8,7 @@ import firebase from 'firebase';
 })
 export class AccountService {
 
-  constructor( private authFire:AngularFireAuth ) { }
+  constructor( private authFire:AngularFireAuth, private router:Router ) { }
 
   public user:firebase.auth.UserCredential | undefined;
 
@@ -22,6 +23,8 @@ export class AccountService {
   loginWithGoogle(){
     this.authFire.signInWithPopup( new firebase.auth.GoogleAuthProvider ).then((user)=>{
       this.user = user;
+      this.router.navigate(['/home']);
+      console.log(user);
     }).catch((error)=>{
       console.error(error);
     })  
@@ -34,4 +37,14 @@ export class AccountService {
       console.error(error);
     })  
   }
+
+  logOut(){
+    this.authFire.signOut().then(()=>{
+      this.user = undefined;
+      this.router.navigate(['/']);
+    }).catch((error)=>{
+      console.error(error);
+    })
+  }
+
 }
