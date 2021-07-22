@@ -1,3 +1,4 @@
+import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   public loginState:boolean = true;
 
-  constructor( private formsBuilder:FormBuilder ) { }
+  constructor( private formsBuilder:FormBuilder, private account:AccountService ) { }
 
   ngOnInit(): void {
     this.createForms();
@@ -30,6 +31,10 @@ export class LoginComponent implements OnInit {
       email : ['', Validators.compose([Validators.required, Validators.email])],
       pass : ['', Validators.compose([Validators.required, Validators.minLength(8)])]
     })
+  }
+
+  loginWithGoogle(){
+    this.account.loginWithGoogle();
   }
 
 }

@@ -19,7 +19,7 @@ export class AccountService {
     })
   }
 
-  loginGmail(){
+  loginWithGoogle(){
     this.authFire.signInWithPopup( new firebase.auth.GoogleAuthProvider ).then((user)=>{
       this.user = user;
     }).catch((error)=>{
