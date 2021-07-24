@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithGoogle(){
-    this.account.loginWithGoogle();
+    this.account.loginWithGoogle()
   }
 
 }

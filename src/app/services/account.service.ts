@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class AccountService {
   constructor( private authFire:AngularFireAuth, private router:Router ) { }
 
   public user:firebase.auth.UserCredential | undefined;
+  private user$:Subject<firebase.auth.UserCredential> = new Subject();
 
   loginEmail(email:string, pass:string){
     this.authFire.signInWithEmailAndPassword(email,pass).then((user)=>{
@@ -21,13 +23,13 @@ export class AccountService {
   }
 
   loginWithGoogle(){
-    this.authFire.signInWithPopup( new firebase.auth.GoogleAuthProvider ).then((user)=>{
+    this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then((user) => {
       this.user = user;
       this.router.navigate(['/home']);
-      console.log(user);
-    }).catch((error)=>{
+      this.user$.next(this.user);
+    }).catch((error) => {
       console.error(error);
-    })  
+    });  
   }
 
   registerEmail(email:string, pass:string){
@@ -45,6 +47,10 @@ export class AccountService {
     }).catch((error)=>{
       console.error(error);
     })
+  }
+
+  getUser$():Observable<firebase.auth.UserCredential>{
+    return this.user$.asObservable();
   }
 
 }

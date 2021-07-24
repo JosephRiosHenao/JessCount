@@ -1,6 +1,8 @@
 import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import firebase from 'firebase';
+
 
 @Component({
   selector: 'app-navbar-side',
@@ -12,13 +14,27 @@ export class NavbarSideComponent implements OnInit {
   closeBtn: any;
   searchBtn: any;
 
-  constructor( public router:Router, private account:AccountService) { }
+  nameUser:string = "Usuario";
+
+  public user: firebase.auth.UserCredential | undefined;;
+
+  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { }
 
   ngOnInit(): void {
     
       this.sidebar = document.querySelector(".sidebar");
       this.closeBtn = document.querySelector("#btn");
       this.searchBtn = document.querySelector(".bx-search");
+
+      this.accountService.getUser$().subscribe((user) => {
+        this.user = user;
+
+        if (user.user?.displayName == "" || user.user?.displayName == undefined || user.user?.displayName == null) {
+          this.nameUser = "Usuario";
+        } else {
+          this.nameUser = user.user?.displayName
+        }
+      })
 
   }
 
@@ -39,6 +55,8 @@ export class NavbarSideComponent implements OnInit {
   logOut(){
     this.account.logOut();
   }
+
+
 
 // closeBtn.addEventListener("click", ()=>{
 //   sidebar.classList.toggle("open");
