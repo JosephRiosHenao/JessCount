@@ -9,15 +9,17 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AccountService {
   
-    public user:firebase.auth.UserCredential | undefined;
-    private user$:Subject<firebase.auth.UserCredential> = new Subject();
+    public user:firebase.User | undefined;
+    private user$:Subject<firebase.User> = new Subject();
 
   constructor( private authFire:AngularFireAuth, private router:Router ) {
     this.authFire.currentUser.then((user) => {
       if (user){
-        this.user?.user = user;
+        this.user = user;
+        console.log(this.user);
+        this.user$.next(this.user);
       }
-    }).
+    })
   }
 
   loginEmail(email:string, pass:string){
@@ -29,8 +31,11 @@ export class AccountService {
   }
 
   loginWithGoogle(){
-    this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then((user) => {
-      this.user = user;
+    this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(() => {
+      this.authFire.currentUser.then((user) => {
+        this.user = user!;
+      }) 
+      
       this.router.navigate(['/home']);
       console.log(this.user);
       this.user$.next(this.user);
@@ -41,7 +46,7 @@ export class AccountService {
 
   registerEmail(email:string, pass:string){
     this.authFire.createUserWithEmailAndPassword(email,pass).then((user)=>{
-      this.user = user;
+      // this.user = user;
     }).catch((error)=>{
       console.error(error);
     })  
@@ -56,7 +61,7 @@ export class AccountService {
     })
   }
 
-  getUser$():Observable<firebase.auth.UserCredential>{
+  getUser$():Observable<firebase.User>{
     return this.user$.asObservable();
   }
 

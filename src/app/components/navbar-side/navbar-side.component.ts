@@ -16,19 +16,11 @@ export class NavbarSideComponent implements OnInit {
 
   nameUser:string = "Usuario";
 
-  public user: firebase.auth.UserCredential | undefined;;
+  public user: firebase.User | undefined;
 
-  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { 
-    
-    
-    
-  }
+  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { }
   
   ngOnInit(): void {
-    this.user = this.accountService.user;
-    if (this.user){
-      this.nameUser = this.user.user?.displayName!;
-    }
     
       this.sidebar = document.querySelector(".sidebar");
       this.closeBtn = document.querySelector("#btn");
@@ -37,13 +29,7 @@ export class NavbarSideComponent implements OnInit {
 
       this.accountService.getUser$().subscribe((user) => {
         this.user = user;
-
-        // console.log("LOCAL "+this.user);
-        // if (user.user?.displayName != "" && user.user?.displayName != undefined || user.user?.displayName == null) {
-        //   this.nameUser = "UsuarioXDE";
-        // } else {
-        // }
-        this.nameUser = user.user?.displayName!;
+        this.nameUser = this.user.displayName!=null?this.user.displayName:"Usuario"!;
       })
 
   }
@@ -51,8 +37,7 @@ export class NavbarSideComponent implements OnInit {
   open(){
     this.sidebar?.classList.toggle("open");
     this.menuBtnChange();
-    console.log(this.router.url)
-  }
+    }
 
   menuBtnChange(){
     if(this.sidebar?.classList.contains("open")){
