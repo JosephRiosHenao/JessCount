@@ -18,22 +18,32 @@ export class NavbarSideComponent implements OnInit {
 
   public user: firebase.auth.UserCredential | undefined;;
 
-  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { }
-
+  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { 
+    
+    
+    
+  }
+  
   ngOnInit(): void {
+    this.user = this.accountService.user;
+    if (this.user){
+      this.nameUser = this.user.user?.displayName!;
+    }
     
       this.sidebar = document.querySelector(".sidebar");
       this.closeBtn = document.querySelector("#btn");
       this.searchBtn = document.querySelector(".bx-search");
 
+
       this.accountService.getUser$().subscribe((user) => {
         this.user = user;
 
-        if (user.user?.displayName == "" || user.user?.displayName == undefined || user.user?.displayName == null) {
-          this.nameUser = "Usuario";
-        } else {
-          this.nameUser = user.user?.displayName
-        }
+        // console.log("LOCAL "+this.user);
+        // if (user.user?.displayName != "" && user.user?.displayName != undefined || user.user?.displayName == null) {
+        //   this.nameUser = "UsuarioXDE";
+        // } else {
+        // }
+        this.nameUser = user.user?.displayName!;
       })
 
   }

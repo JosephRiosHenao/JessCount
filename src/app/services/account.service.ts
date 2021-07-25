@@ -8,11 +8,17 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
+  
+    public user:firebase.auth.UserCredential | undefined;
+    private user$:Subject<firebase.auth.UserCredential> = new Subject();
 
-  constructor( private authFire:AngularFireAuth, private router:Router ) { }
-
-  public user:firebase.auth.UserCredential | undefined;
-  private user$:Subject<firebase.auth.UserCredential> = new Subject();
+  constructor( private authFire:AngularFireAuth, private router:Router ) {
+    this.authFire.currentUser.then((user) => {
+      if (user){
+        this.user?.user = user;
+      }
+    }).
+  }
 
   loginEmail(email:string, pass:string){
     this.authFire.signInWithEmailAndPassword(email,pass).then((user)=>{
@@ -26,6 +32,7 @@ export class AccountService {
     this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then((user) => {
       this.user = user;
       this.router.navigate(['/home']);
+      console.log(this.user);
       this.user$.next(this.user);
     }).catch((error) => {
       console.error(error);
