@@ -15,6 +15,7 @@ export class NavbarSideComponent implements OnInit {
   searchBtn: any;
 
   nameUser:string = "Usuario";
+  imgUser:string = "assets/img/default-user.png";
 
   public user: firebase.User | undefined;
 
@@ -28,12 +29,14 @@ export class NavbarSideComponent implements OnInit {
 
 
       this.accountService.getUser$().subscribe((user) => {
+        console.log(user);
         this.user = user;
         this.nameUser = this.user.displayName!=null?this.user.displayName:"Usuario"!;
+        this.imgUser = this.user.photoURL!=null?this.user.photoURL!:"assets/img/default-user.png";
       })
-
-  }
-
+      
+    }
+    
   open(){
     this.sidebar?.classList.toggle("open");
     this.menuBtnChange();

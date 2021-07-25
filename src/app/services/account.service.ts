@@ -17,8 +17,6 @@ export class AccountService {
     this.authFire.onAuthStateChanged(user => {
       if (user) {
         this.user = user!;
-        console.log(this.user);
-        console.log(user);
         this.user$.next(this.user);
         router.navigate(["/home"])
       }else {
@@ -38,13 +36,7 @@ export class AccountService {
 
   loginWithGoogle(){
     this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(() => {
-      this.authFire.currentUser.then((user) => {
-        this.user = user!;
-      }) 
-      
-      this.router.navigate(['/home']);
-      console.log(this.user);
-      this.user$.next(this.user);
+      this.authFire.onAuthStateChanged(() => window.location.reload()) 
     }).catch((error) => {
       console.error(error);
     });  

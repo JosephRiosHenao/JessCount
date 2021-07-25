@@ -56,7 +56,9 @@
     <li class="profile">
       <div class="profile-details">
         <div class="" [routerLink]="['/profile']">
-          <img src="profile.jpg" alt="profileImg" >
+          <img [src]="imgUser" alt="profileImg" >
+        </div>
+        <div class="" [routerLink]="['/profile']">
           <div class="name_job">
             <div class="name">{{ nameUser }}</div>
             <div class="job">Administrador</div>
