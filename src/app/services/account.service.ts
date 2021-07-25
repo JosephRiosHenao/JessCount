@@ -13,13 +13,19 @@ export class AccountService {
     private user$:Subject<firebase.User> = new Subject();
 
   constructor( private authFire:AngularFireAuth, private router:Router ) {
-    this.authFire.currentUser.then((user) => {
-      if (user){
-        this.user = user;
+    
+    this.authFire.onAuthStateChanged(user => {
+      if (user) {
+        this.user = user!;
         console.log(this.user);
+        console.log(user);
         this.user$.next(this.user);
+        router.navigate(["/home"])
+      }else {
+        router.navigate(["/"])
       }
     })
+
   }
 
   loginEmail(email:string, pass:string){
