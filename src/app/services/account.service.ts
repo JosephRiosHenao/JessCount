@@ -18,7 +18,9 @@ export class AccountService {
       if (user) {
         this.user = user!;
         this.user$.next(this.user);
-        router.navigate(["/home"])
+        if (router.url.split('#')[0] == '/'){
+          router.navigate(["/home"]);
+        }
       }else {
         router.navigate(["/"])
       }

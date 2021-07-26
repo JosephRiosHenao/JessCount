@@ -6,11 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'JessCount';
-  public activeNavbar:boolean = true;
+
 
   constructor( public router:Router ){
-    console.log(router.url.split('#')[0])
   }
 }
