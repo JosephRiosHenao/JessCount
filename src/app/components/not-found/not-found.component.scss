@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.white-div {
+    height: 40vh;
+    background-color: rgb(255, 255, 255);
+    position: static;
+}
+.orange-div {
+    height: 60vh;
+    background-color: #f1cf37;
+    position: relative;
+}
+.wave-top {
+    height: 61vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: rotate(180deg);
+    z-index: 0;
+}
+.error404 {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    z-index: 0;
+    left: 50%;
+    transform: translate(-50%, -100px);
+}
+
+.white-div {
+    height: 40vh;
+}
+
+.error {
+    text-align: center;
+    color: #FFAA2D;
+    transform: translate(0, 100%);
+    font-size: 5.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .error404 {
+        width: 100%;
+    }
+
+    .error {
+        font-size: 4.5em;
+    }
+}       

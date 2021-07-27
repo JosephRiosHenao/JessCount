@@ -19,10 +19,12 @@ export class AccountService {
         this.user = user!;
         this.user$.next(this.user);
         if (router.url.split('#')[0] == '/'){
-          router.navigate(["/home"]);
+          router.navigate(["/home"]).then(() => window.location.reload());
         }
       }else {
-        router.navigate(["/"])
+        if (router.url.split('#')[0] != '/'){
+          router.navigate(["/"]).then(() => window.location.reload());
+        }
       }
     })
 
