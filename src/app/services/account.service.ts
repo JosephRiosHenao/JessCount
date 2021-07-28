@@ -9,8 +9,9 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AccountService {
   
-    public user:firebase.User | undefined;
+    public user:firebase.User | undefined = undefined;
     private user$:Subject<firebase.User> = new Subject();
+    private load$:Subject<boolean> = new Subject();
 
   constructor( private authFire:AngularFireAuth, private router:Router ) {
     
@@ -26,6 +27,9 @@ export class AccountService {
           router.navigate(["/"]).then(() => window.location.reload());
         }
       }
+      setTimeout(() => {
+        this.load$.next(false);
+      }, 3000);
     })
 
   }
@@ -65,6 +69,10 @@ export class AccountService {
 
   getUser$():Observable<firebase.User>{
     return this.user$.asObservable();
+  }
+
+  getLoad$():Observable<boolean>{
+    return this.load$.asObservable();
   }
 
 }
