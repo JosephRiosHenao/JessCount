@@ -22,6 +22,7 @@ import { SalesComponent } from './components/sales/sales.component';
 import { ConfigComponent } from './components/config/config.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ConfigComponent,
     ProfileComponent,
     NotFoundComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
