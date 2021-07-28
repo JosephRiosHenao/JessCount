@@ -2,6 +2,11 @@
     0% { transform: rotate(0) }
     100% { transform: rotate(360deg) }
   }
+@keyframes text-animate {
+    0% { color: #689cc5; }
+    50% {  color:#689dc53d;   }
+    100% {  color:#689cc5;   }
+  }
   .ldio-dxm0i6cct17 div { box-sizing: border-box!important }
   .ldio-dxm0i6cct17 > div {
     position: absolute;
@@ -110,7 +115,9 @@ section {
     -webkit-transform: translate(-50%, -50%);
 }
 
-h1 {
+h3 {
     color: #689cc5;
     text-align: center;
+    animation: text-animate 2s linear infinite;
+
 }
