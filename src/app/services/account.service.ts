@@ -27,9 +27,7 @@ export class AccountService {
           router.navigate(["/"]).then(() => window.location.reload());
         }
       }
-      setTimeout(() => {
-        this.load$.next(false);
-      }, 3000);
+      this.load$.next(false);
     })
 
   }
@@ -44,6 +42,7 @@ export class AccountService {
 
   loginWithGoogle(){
     this.authFire.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(() => {
+      this.load$.next(true);
       this.authFire.onAuthStateChanged(() => window.location.reload()) 
     }).catch((error) => {
       console.error(error);
@@ -60,8 +59,9 @@ export class AccountService {
 
   logOut(){
     this.authFire.signOut().then(()=>{
+      this.load$.next(true);
       this.user = undefined;
-      this.router.navigate(['/']);
+      window.location.reload();
     }).catch((error)=>{
       console.error(error);
     })

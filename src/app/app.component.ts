@@ -1,5 +1,5 @@
 import { AccountService } from './services/account.service';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,13 @@ export class AppComponent{
   public loading:boolean = true;
 
 
-  constructor( public router:Router, public accountSevice:AccountService ){
+  constructor( public router:Router, public accountSevice:AccountService, private ngZone:NgZone, private changeDetector: ChangeDetectorRef){
     accountSevice.getLoad$().subscribe((state) => {
-      this.toggleLoading(state);
+        this.loading = state;
+        changeDetector.detectChanges();
     })
   }
+
 
   toggleLoading(state:boolean){
     this.loading = state;

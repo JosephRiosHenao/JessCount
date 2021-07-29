@@ -1,11 +1,14 @@
-<app-loading *ngIf="loading === true"></app-loading>
-<div>
-    <app-navbar-side *ngIf="router.url.split('#')[0] != '/'"></app-navbar-side>
-    <div [ngClass]="{ 'active-sideNavbar': router.url.split('#')[0] != '/'}">
-        <router-outlet></router-outlet>
+<app-loading *ngIf="loading === true; else pageContent"></app-loading>
+<ng-template #pageContent>
+    <div>
+        <app-navbar-side *ngIf="router.url.split('#')[0] != '/'"></app-navbar-side>
+        <div [ngClass]="{ 'active-sideNavbar': router.url.split('#')[0] != '/'}">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- <app-footer></app-footer> -->
     </div>
-    <!-- <app-footer></app-footer> -->
-</div>
+</ng-template>
+
 
 
 
