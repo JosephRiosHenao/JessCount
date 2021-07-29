@@ -20,11 +20,17 @@ export class AccountService {
         this.user = user!;
         this.user$.next(this.user);
         if (router.url.split('#')[0] == '/'){
-          router.navigate(["/home"]).then(() => window.location.reload());
+          router.navigate(["/home"]).then(() => {
+            this.load$.next(true);
+            window.location.reload()
+          });
         }
       }else {
         if (router.url.split('#')[0] != '/'){
-          router.navigate(["/"]).then(() => window.location.reload());
+          router.navigate(["/"]).then(() => {
+            this.load$.next(true);
+            window.location.reload()
+          });
         }
       }
       this.load$.next(false);

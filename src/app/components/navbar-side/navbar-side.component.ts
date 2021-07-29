@@ -19,7 +19,9 @@ export class NavbarSideComponent implements OnInit {
 
   public user: firebase.User | undefined;
 
-  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { }
+  constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { 
+
+  }
   
   ngOnInit(): void {
     
@@ -27,13 +29,14 @@ export class NavbarSideComponent implements OnInit {
       this.closeBtn = document.querySelector("#btn");
       this.searchBtn = document.querySelector(".bx-search");
 
-
       this.accountService.getUser$().subscribe((user) => {
+        console.log("Cuenta exitosamente cargada!");
         console.log(user);
         this.user = user;
         this.nameUser = this.user.displayName!=null?this.user.displayName:"Usuario"!;
         this.imgUser = this.user.photoURL!=null?this.user.photoURL!:"assets/img/default-user.png";
       })
+  
       
     }
     

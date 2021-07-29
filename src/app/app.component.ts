@@ -12,10 +12,11 @@ export class AppComponent{
   public loading:boolean = true;
 
 
-  constructor( public router:Router, public accountSevice:AccountService, private ngZone:NgZone, private changeDetector: ChangeDetectorRef){
+  constructor( public router:Router, public accountSevice:AccountService, private changeDetector: ChangeDetectorRef){
     accountSevice.getLoad$().subscribe((state) => {
         this.loading = state;
         changeDetector.detectChanges();
+        
     })
   }
 
