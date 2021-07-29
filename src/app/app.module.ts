@@ -23,6 +23,7 @@ import { ConfigComponent } from './components/config/config.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { LoadingControlComponent } from './components/loading-control/loading-control.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     ProfileComponent,
     NotFoundComponent,
     LoadingComponent,
+    LoadingControlComponent,
   ],
   imports: [
     BrowserModule,

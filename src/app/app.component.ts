@@ -16,13 +16,7 @@ export class AppComponent{
     accountSevice.getLoad$().subscribe((state) => {
         this.loading = state;
         changeDetector.detectChanges();
-        
+
     })
-  }
-
-
-  toggleLoading(state:boolean){
-    this.loading = state;
-    console.log(this.loading);
   }
 }
