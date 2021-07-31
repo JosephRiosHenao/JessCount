@@ -6,11 +6,31 @@
   height: 150px;
 }
 
+.content {
+  min-height: 100vh;
+  width: 100%;
+}
 
+.user-side {
+  background: linear-gradient(20deg, #F60 0%, #FF6 100%);
+}
 
+.user-information {
 
-@media (max-width: 1365px) {
+}
+
+h1 {
+}
+
+p {
+  font-size: 1rem;
+}
+
+@media (max-width: 500px) {
   .div {
     background-size: contain;
+  }
+  p {
+    font-size: 0.8rem;
   }
 }
