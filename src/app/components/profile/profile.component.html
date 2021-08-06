@@ -1,42 +1,46 @@
 
-    <div class="content row justify-content-center align-items-center m-0">
-        <div class="user-side col-12 col-md-4">
-            <div class="container">
-                <div class="row row-profile justify-content-center  align-self-center row-profile">
-                    <!-- <img class="profile-img" src="{{user.image}}"> -->
-                    <div class="profilepic">
-                        <img class="profilepic__image" src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e" width="150" height="150" alt="Profibild" />
-                        <div class="profilepic__content">
-                            <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
-                            <span class="profilepic__text">CAMBIAR IMAGEN</span>
+<div *ngIf="user">
+
+    
+        <div class="content row justify-content-center align-items-center m-0">
+            <div class="user-side col-12 col-md-4">
+                <div class="container">
+                    <div class="row row-profile justify-content-center  align-self-center row-profile">
+                        <!-- <img class="profile-img" src="{{user.image}}"> -->
+                        <div class="profilepic">
+                            <img class="profilepic__image" [src]="user.photoURL" width="150" height="150" alt="Profibild" />
+                            <div class="profilepic__content">
+                                <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
+                                <span class="profilepic__text">CAMBIAR IMAGEN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-information col-12 col-md-8">
+                <div class="container">
+                    <h5>Informacion del negocio</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <h4>Nombre:</h4>
+                            <p>{{user.displayName}}</p>
+                            <h4>Correo:</h4>
+                            <p>{{user.email}}</p>
+                            <h4>Verificacion de correo:</h4>
+                            <p>{{user.emailVerified}}</p>
+                        </div>
+                        <div class="col">
+                            <h4>Contrasenia:</h4>
+                            <p>Proximamente...</p>
+                            <h4>Telefono:</h4>
+                            <p>{{user.phoneNumber}}</p>
+                            <h4>Ultimo inicio de sesion:</h4>
+                            <p>{{user.metadata.lastSignInTime}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="user-information col-12 col-md-8">
-            <div class="container">
-                <h5>Informacion del negocio</h5>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <h4>Nombre:</h4>
-                        <p>{{user.name}}</p>
-                        <h4>Correo:</h4>
-                        <p>{{user.email}}</p>
-                        <h4>Verificacion de correo:</h4>
-                        <p>{{user.emailVerified}}</p>
-                    </div>
-                    <div class="col">
-                        <h4>Direccion:</h4>
-                        <p>{{user.address}}</p>
-                        <h4>Telefono:</h4>
-                        <p>{{user.tel}}</p>
-                        <h4>Locacion:</h4>
-                        <p>{{user.location}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+</div>    
