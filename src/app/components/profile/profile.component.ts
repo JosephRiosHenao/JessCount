@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import firebase from 'firebase';
 
@@ -20,14 +20,17 @@ export class ProfileComponent implements OnInit {
     // location: 'Brazil, Rio de Janeiro'
 
 
-  constructor( private accountService:AccountService) {
-    accountService.getUser$().subscribe((user) => {
+  constructor( private accountService:AccountService, private changeDetector:ChangeDetectorRef) {
+    // this.user.
+    this.user = this.accountService.user!;
+    this.accountService.getUser$().subscribe((user) => {
       this.user = user;
-      user.phoneNumber = user.phoneNumber != null ? user.phoneNumber : 'No seha registrado ningún número de teléfono';
+      changeDetector.detectChanges();
     })
   }
-
+  
   ngOnInit(): void {
+
   }
 
 }

@@ -1,7 +1,6 @@
 
 <div *ngIf="user">
 
-    
         <div class="content row justify-content-center align-items-center m-0">
             <div class="user-side col-12 col-md-4">
                 <div class="container">
@@ -28,15 +27,17 @@
                             <h4>Correo:</h4>
                             <p>{{user.email}}</p>
                             <h4>Verificacion de correo:</h4>
-                            <p>{{user.emailVerified}}</p>
+                            <p *ngIf="user.emailVerified">Esta verificado <i class='bx bx-check' style="color:green"></i></p>
+                            <p *ngIf="!user.emailVerified">No esta verificado <i class='bx bx-x' style="color:red;"></i></p>
                         </div>
                         <div class="col">
                             <h4>Contrasenia:</h4>
                             <p>Proximamente...</p>
                             <h4>Telefono:</h4>
-                            <p>{{user.phoneNumber}}</p>
+                            <p *ngIf="user.phoneNumber">{{user.phoneNumber}}</p>
+                            <p *ngIf="!user.phoneNumber">No se ha registrado</p>
                             <h4>Ultimo inicio de sesion:</h4>
-                            <p>{{user.metadata.lastSignInTime}}</p>
+                            <p>{{user.metadata.lastSignInTime | date:'dd/MM/yyyy'}} a las {{user.metadata.lastSignInTime | date:'h:mm: a'}}</p>
                         </div>
                     </div>
                 </div>
