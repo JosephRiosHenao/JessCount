@@ -24,6 +24,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoadingControlComponent } from './components/loading-control/loading-control.component';
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { LoadingControlComponent } from './components/loading-control/loading-co
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFireStorageModule,
     ReactiveFormsModule
   ],
   providers: [],

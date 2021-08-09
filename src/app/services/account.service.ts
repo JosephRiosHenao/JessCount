@@ -81,4 +81,19 @@ export class AccountService {
     return this.load$.asObservable();
   }
 
+  updatePhoto(file:File){
+    let storage = firebase.storage();
+    storage.ref("photosProfile/"+this.user?.uid+".jpg").put(file).then(() => {
+      storage.ref("photosProfile/"+this.user?.uid+".jpg").getDownloadURL().then((url) => {
+        firebase.auth().currentUser?.updateProfile({
+          photoURL: url
+        }).then(() => {
+          this.user = firebase.auth().currentUser!;
+          this.user$.next(this.user);
+        })
+      })
+    })
+
+  }
+
 }

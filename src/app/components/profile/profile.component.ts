@@ -33,4 +33,12 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  changePhotoURL(e:Event){
+    this.changeDetector.detectChanges();
+    if (e.target != null){
+      let file : File = (e.target as HTMLInputElement).files?.item(0)!;
+      this.accountService.updatePhoto(file)
+    }
+  }
+
 }
