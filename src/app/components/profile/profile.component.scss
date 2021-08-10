@@ -29,7 +29,15 @@ p {
   font-size: 1rem;
 }
 
+.edit-btn {
+  margin-top: 1rem;
+}
+
 @media (max-width: 780px) {
+  .edit-btn {
+    margin-bottom: 1rem;
+  }
+
   .div {
     background-size: contain;
   }
