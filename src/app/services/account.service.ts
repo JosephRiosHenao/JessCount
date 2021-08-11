@@ -93,7 +93,18 @@ export class AccountService {
         })
       })
     })
+  }
 
+  updatePassword(email:string){
+    firebase.auth().sendPasswordResetEmail(email).then(() => {
+      console.log("Password reset email sent.")
+    })
+  }
+
+  confirmEmail(){
+    firebase.auth().currentUser?.sendEmailVerification().then(() => {
+      console.log("Email verification sent.")
+    })
   }
 
 }

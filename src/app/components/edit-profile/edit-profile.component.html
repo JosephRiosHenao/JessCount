@@ -1,6 +1,11 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down modal-lg">
+
+        <form (ngSubmit)="onSubmit()" #editProfile="ngForm">
+            
+        </form>
+        
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel" style="text-align: center">
@@ -21,10 +26,10 @@
                     </div>
                     <div class="row">
                         <div class="col-6 text-center">
-                            <button class="btn btn-outline-primary">Cambiar contrasenia</button>
+                            <button class="btn btn-outline-primary" style="width: 100%;" (click)="updatePass()">Cambiar contrasenia</button>
                         </div>
                         <div class="col-6 text-center">
-                            <button class="btn btn-outline-primary" ngClass="">Verificar cuenta</button>
+                            <button class="btn btn-outline-primary" style="width: 100%;" [disabled]="!verified" (click)="sendVefification()">Verificar cuenta</button>
                         </div>
                     </div>
 
