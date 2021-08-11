@@ -25,6 +25,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoadingControlComponent } from './components/loading-control/loading-control.component';
 import { AngularFireStorageModule } from "@angular/fire/storage";
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
     NotFoundComponent,
     LoadingComponent,
     LoadingControlComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
