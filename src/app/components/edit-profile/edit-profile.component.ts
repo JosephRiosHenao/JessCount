@@ -22,6 +22,12 @@ export class EditProfileComponent implements OnInit {
 
   constructor( public accountService:AccountService, private formBuilder:FormBuilder) {
     this.createForm()
+    accountService.getUser$().subscribe((user) => {
+      this.editProfileForm.setValue({
+        name: user.displayName,
+        tel: user.phoneNumber
+      })
+    })
   }
   
   ngOnInit(): void {
@@ -34,6 +40,15 @@ export class EditProfileComponent implements OnInit {
     this.accountService.confirmEmail();
   }
 
+
+  exitForm(){
+    this.editProfileForm.reset();
+    let user:any = this.accountService.user;
+    this.editProfileForm.setValue({
+      name: user.displayName,
+      tel: user.phoneNumber
+    })
+  }
 
   onSubmitEditProfile(){
 

@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1">
+<div class="modal fade" id="exampleModal" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down modal-lg">
 
         
@@ -15,11 +15,13 @@
                     <div class="container">
     
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nameEditProfileForm" placeholder="Usuario" formControlName="name">
+                            <input type="text" class="form-control" id="nameEditProfileForm" placeholder="Usuario" formControlName="name" 
+                            [ngClass]="{'is-invalid': editProfileForm.controls['name'].invalid && (editProfileForm.controls['name'].dirty || editProfileForm.controls['name'].touched),'is-valid': editProfileForm.controls['name'].valid && (editProfileForm.controls['name'].dirty || editProfileForm.controls['name'].touched)}">
                             <label for="nameEditProfileForm">Nombre</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="telEditProfileForm" placeholder="Telefono" formControlName="tel" >
+                            <input type="text" class="form-control" id="telEditProfileForm" placeholder="Telefono" formControlName="tel"
+                            [ngClass]="{'is-invalid': editProfileForm.controls['tel'].invalid && (editProfileForm.controls['tel'].dirty || editProfileForm.controls['tel'].touched),'is-valid': editProfileForm.controls['tel'].valid && (editProfileForm.controls['tel'].dirty || editProfileForm.controls['tel'].touched)}">
                             <label for="telEditProfileForm">Telefono</label>
                         </div>
                         <div class="row">
@@ -36,7 +38,7 @@
     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger btn-md" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-outline-danger btn-md" data-bs-dismiss="modal" (click)="exitForm()">
                         Cerrar
                     </button>
                     <button type="submit" class="btn btn-success btn-md">Guardar cambios</button>
