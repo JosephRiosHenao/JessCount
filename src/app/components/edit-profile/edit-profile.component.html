@@ -2,47 +2,47 @@
 <div class="modal fade" id="exampleModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down modal-lg">
 
-        <form (ngSubmit)="onSubmit()" #editProfile="ngForm">
-            
-        </form>
         
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" style="text-align: center">
-                    Editar perfil
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Nombre</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Telefono</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 text-center">
-                            <button class="btn btn-outline-primary" style="width: 100%;" (click)="updatePass()">Cambiar contrasenia</button>
-                        </div>
-                        <div class="col-6 text-center">
-                            <button class="btn btn-outline-primary" style="width: 100%;" [disabled]="!verified" (click)="sendVefification()">Verificar cuenta</button>
-                        </div>
-                    </div>
-
+            <form (ngSubmit)="onSubmitEditProfile()" [formGroup]="editProfileForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="text-align: center">
+                        Editar perfil
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger btn-md" data-bs-dismiss="modal">
-                    Cerrar
-                </button>
-                <button type="button" class="btn btn-success btn-md">Guardar cambios</button>
-            </div>
+                <div class="modal-body">
+                    <div class="container">
+    
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nameEditProfileForm" placeholder="Usuario" formControlName="name">
+                            <label for="nameEditProfileForm">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="telEditProfileForm" placeholder="Telefono" formControlName="tel" >
+                            <label for="telEditProfileForm">Telefono</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <button class="btn btn-outline-primary" style="width: 100%;" (click)="updatePass()">Cambiar contrasenia</button>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button class="btn btn-outline-primary" style="width: 100%;" [disabled]="!verified" (click)="sendVefification()">Verificar cuenta</button>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger btn-md" data-bs-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-success btn-md">Guardar cambios</button>
+                </div>
+            </form>
         </div>
+            
     </div>
 </div>
