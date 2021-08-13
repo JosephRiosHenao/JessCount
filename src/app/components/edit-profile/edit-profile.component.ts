@@ -34,6 +34,7 @@ export class EditProfileComponent implements OnInit {
     this.verified = this.accountService.user?.emailVerified!;
   }
   updatePass(){
+    console.log(this.accountService.user?.email!)
     this.accountService.updatePassword(this.accountService.user?.email!);
   }
   sendVefification() {
@@ -51,6 +52,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmitEditProfile(){
-
+    console.log(this.editProfileForm.value)
   }
 }
