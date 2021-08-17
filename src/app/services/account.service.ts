@@ -108,12 +108,12 @@ export class AccountService {
   }
 
   updateData(data:any){
-    let tel = data.tel != "" || data.tel != null ? data.tel : null;
-    let name = data.name != "" || data.name != null ? data.name : null;
+    // let tel = data.tel != "" || data.tel != null ? data.tel : null;
+    // let name = data.name != "" || data.name != null ? data.name : null;
 
-    firebase.auth().currentUser?.updatePhoneNumber(tel).then(() => {
-      console.log("Phone number updated.");
-    })
+    // firebase.auth().currentUser?.updatePhoneNumber(tel).then(() => {
+    //   console.log("Phone number updated.");
+    // })
 
     // firebase.auth.PhoneAuthProvider.credential().signInMethod
     //   // verification code from user
@@ -121,4 +121,5 @@ export class AccountService {
 
     
   }
+
 }
