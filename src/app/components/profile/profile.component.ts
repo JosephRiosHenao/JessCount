@@ -27,6 +27,8 @@ export class ProfileComponent implements OnInit {
       this.user = user;
       changeDetector.detectChanges();
     })
+    this.user.getIdToken().then((token) => { console.log("tokenID: " + token); }); 
+    console.log("providerID:"+ this.user.providerId)
   }
   
   ngOnInit(): void {

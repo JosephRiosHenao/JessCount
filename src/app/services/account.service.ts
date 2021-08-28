@@ -14,11 +14,15 @@ export class AccountService {
     private load$:Subject<boolean> = new Subject();
 
   constructor( private authFire:AngularFireAuth, private router:Router ) {
+
     
     this.authFire.onAuthStateChanged(user => {
       if (user) {
         this.user = user!;
         this.user$.next(this.user);
+        
+        user.getIdToken().then((token) => { console.log("tokenID: " + token); }); 
+        
         if (router.url.split('#')[0] == '/'){
           router.navigate(["/home"]).then(() => {
             this.load$.next(true);
