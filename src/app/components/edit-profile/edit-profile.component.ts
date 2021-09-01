@@ -15,8 +15,8 @@ export class EditProfileComponent implements OnInit {
 
   createForm(){
     this.editProfileForm = this.formBuilder.group({
-      name: [this.accountService.user?.displayName,Validators.required],
-      tel: [this.accountService.user?.phoneNumber,Validators.required],
+      name: [this.accountService.user.username,Validators.required],
+      tel: [this.accountService.user.phone,Validators.required],
     })
   }
 
@@ -24,14 +24,14 @@ export class EditProfileComponent implements OnInit {
     this.createForm()
     accountService.getUser$().subscribe((user) => {
       this.editProfileForm.setValue({
-        name: user.displayName,
-        tel: user.phoneNumber
+        name: user.username,
+        tel: user.phone
       })
     })
   }
   
   ngOnInit(): void {
-    this.verified = this.accountService.user?.emailVerified!;
+    this.verified = this.accountService.userFire?.emailVerified!;
   }
   updatePass(){
     console.log(this.accountService.user?.email!)

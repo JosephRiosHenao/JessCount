@@ -2,6 +2,7 @@ import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase';
+import { User } from 'src/app/models/user.model';
 
 
 @Component({
@@ -14,12 +15,10 @@ export class NavbarSideComponent implements OnInit {
   closeBtn: any;
   searchBtn: any;
 
-  nameUser:string = "Usuario";
-  imgUser:string = "assets/img/default-user.png";
-
-  public user: firebase.User | undefined;
+  public user: User;
 
   constructor( public router:Router, private account:AccountService, private accountService:AccountService ) { 
+    this.user  = accountService.user;
 
   }
   
@@ -33,8 +32,6 @@ export class NavbarSideComponent implements OnInit {
         console.log("Cuenta exitosamente cargada!");
         console.log(user);
         this.user = user;
-        this.nameUser = this.user.displayName!=null?this.user.displayName:"Usuario"!;
-        this.imgUser = this.user.photoURL!=null?this.user.photoURL!:"assets/img/default-user.png";
       })
   
       

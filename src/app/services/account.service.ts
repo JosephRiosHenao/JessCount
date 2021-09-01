@@ -4,14 +4,26 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
   
-    public user:firebase.User | undefined = undefined;
-    private user$:Subject<firebase.User> = new Subject();
+    public user:User = {
+      uid: "Error",
+      avatar: "assets/img/default-user.png",
+      username: "Usuario",
+      email: "user@gmail.com",
+      country: "Desconocido",
+      city: "Desconocido",
+      phone: "Desconocido",
+      address: "Desconocido"
+    };
+
+    public userFire:firebase.User | undefined = undefined;
+    private user$:Subject<User> = new Subject();
     private load$:Subject<boolean> = new Subject();
 
   constructor( private authFire:AngularFireAuth, private router:Router, private http:HttpClient ) {
@@ -19,16 +31,16 @@ export class AccountService {
     
     this.authFire.onAuthStateChanged(user => {
       if (user) {
-        this.user = user!;
-        this.user$.next(this.user);
-
+        this.userFire = user!;
         // let uid:string = user.uid
         let uid:string = "XDaxDE"
         
         user.getIdToken().then((token) => { 
           console.log("tokenID: " + token); 
           http.get("https://jesscount-1bff0-default-rtdb.firebaseio.com/users/"+uid+"/user.json?auth="+token).subscribe((data:any) => {
-            console.log(data)
+            this.user = data;
+            console.log(this.user)
+            this.user$.next(this.user);
           })
         }); 
 
@@ -48,7 +60,9 @@ export class AccountService {
           });
         }
       }
-      this.load$.next(false);
+      setTimeout(() => {
+        this.load$.next(false);
+      },500)
     })
 
   }
@@ -81,14 +95,23 @@ export class AccountService {
   logOut(){
     this.authFire.signOut().then(()=>{
       this.load$.next(true);
-      this.user = undefined;
+      this.user = {
+        uid: "Error",
+        avatar: "assets/img/default-user.png",
+        username: "Usuario",
+        email: "user@gmail.com",
+        country: "Desconocido",
+        city: "Desconocido",
+        phone: "Desconocido",
+        address: "Desconocido"
+      };
       window.location.reload();
     }).catch((error)=>{
       console.error(error);
     })
   }
 
-  getUser$():Observable<firebase.User>{
+  getUser$():Observable<User>{
     return this.user$.asObservable();
   }
 
@@ -98,13 +121,13 @@ export class AccountService {
 
   updatePhoto(file:File){
     let storage = firebase.storage();
-    storage.ref("photosProfile/"+this.user?.uid+".jpg").put(file).then(() => {
-      storage.ref("photosProfile/"+this.user?.uid+".jpg").getDownloadURL().then((url) => {
+    storage.ref("photosProfile/"+this.user.uid+".jpg").put(file).then(() => {
+      storage.ref("photosProfile/"+this.user.uid+".jpg").getDownloadURL().then((url) => {
         firebase.auth().currentUser?.updateProfile({
           photoURL: url
         }).then(() => {
-          this.user = firebase.auth().currentUser!;
-          this.user$.next(this.user);
+          // this.user = firebase.auth().currentUser!;
+          // this.user$.next(this.user);
         })
       })
     })
