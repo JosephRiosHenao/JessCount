@@ -44,3 +44,5 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+
+// Rules DB update
