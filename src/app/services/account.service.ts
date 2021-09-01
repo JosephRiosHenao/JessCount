@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,25 @@ export class AccountService {
     private user$:Subject<firebase.User> = new Subject();
     private load$:Subject<boolean> = new Subject();
 
-  constructor( private authFire:AngularFireAuth, private router:Router ) {
+  constructor( private authFire:AngularFireAuth, private router:Router, private http:HttpClient ) {
 
     
     this.authFire.onAuthStateChanged(user => {
       if (user) {
         this.user = user!;
         this.user$.next(this.user);
+
+        // let uid:string = user.uid
+        let uid:string = "XDaxDE"
         
-        user.getIdToken().then((token) => { console.log("tokenID: " + token); }); 
+        user.getIdToken().then((token) => { 
+          console.log("tokenID: " + token); 
+          http.get("https://jesscount-1bff0-default-rtdb.firebaseio.com/users/"+uid+"/user.json?auth="+token).subscribe((data:any) => {
+            console.log(data)
+          })
+        }); 
+
+        
         
         if (router.url.split('#')[0] == '/'){
           router.navigate(["/home"]).then(() => {

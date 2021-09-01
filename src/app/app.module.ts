@@ -26,6 +26,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { LoadingControlComponent } from './components/loading-control/loading-control.component';
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
