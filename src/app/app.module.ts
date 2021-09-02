@@ -27,6 +27,7 @@ import { LoadingControlComponent } from './components/loading-control/loading-co
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { HttpClientModule } from "@angular/common/http";
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { HttpClientModule } from "@angular/common/http";
     LoadingComponent,
     LoadingControlComponent,
     EditProfileComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

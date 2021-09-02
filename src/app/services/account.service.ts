@@ -32,15 +32,23 @@ export class AccountService {
     this.authFire.onAuthStateChanged(user => {
       if (user) {
         this.userFire = user!;
-        // let uid:string = user.uid
-        let uid:string = "XDaxDE"
+        let uid:string = user.uid
+        // let uid:string = "XDaxDE"
         
         user.getIdToken().then((token) => { 
           console.log("tokenID: " + token); 
           http.get("https://jesscount-1bff0-default-rtdb.firebaseio.com/users/"+uid+"/user.json?auth="+token).subscribe((data:any) => {
-            this.user = data;
-            console.log(this.user)
-            this.user$.next(this.user);
+            
+            if (data === null) {
+              console.log("No data")
+              router.navigate(["/welcome"])  
+              
+            } else {
+              this.user = data;
+              console.log(this.user)
+              this.user$.next(this.user);
+            }
+
           })
         }); 
 
@@ -65,6 +73,10 @@ export class AccountService {
       },500)
     })
 
+  }
+
+  changeLoad(state:boolean){
+    this.load$.next(state);
   }
 
   loginEmail(email:string, pass:string){
