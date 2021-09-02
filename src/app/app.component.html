@@ -1,7 +1,7 @@
 <app-loading-control></app-loading-control>
 <div>
-    <app-navbar-side *ngIf="router.url.split('#')[0] != '/' || router.url.split('#')[0] != '/welcome'"></app-navbar-side>
-    <div [ngClass]="{ 'active-sideNavbar': router.url.split('#')[0] != '/' || router.url.split('#')[0] != '/welcome' }">
+    <app-navbar-side *ngIf="router.url.split('#')[0] != '/'"></app-navbar-side>
+    <div [ngClass]="{ 'active-sideNavbar': router.url.split('#')[0] != '/'}">
         <router-outlet></router-outlet>
     </div>
     <!-- <app-footer></app-footer> -->

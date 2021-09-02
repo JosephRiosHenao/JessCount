@@ -16,7 +16,6 @@ export class AppComponent{
     accountSevice.getLoad$().subscribe((state) => {
         this.loading = state;
         changeDetector.detectChanges();
-
     })
   }
 }

@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GettingStartedComponent } from './components/getting-started/getting-started.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   {path:'', component: LandingPageComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'sales', component: SalesComponent},
   {path:'config', component: ConfigComponent},
   {path:'profile', component: ProfileComponent},
+  {path:"welcome", component: WelcomeComponent},
 
 
   {path:'**', component: NotFoundComponent}
