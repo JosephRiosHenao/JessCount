@@ -1,34 +1,73 @@
-<div class="mid">
+<!-- <div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div> -->
 
-    <!-- <h1>Bienvenido a JessCount</h1> -->
-    
+  <div class="text-center center">
+    <div class="form-singin shadow-lg">
+      <form>
+        <ng-container *ngIf="!partFinish; then partOne; else partTwo"></ng-container>
+        <ng-template #partOne>
+          <div class="container">
 
-    <!-- <form action="" class="margin: auto;" >
-        <div class="card">
-            <div class="card-body">
-                xdefefefes
+            <div class="profilepic">
+              <img class="profilepic__image" [src]="user.avatar" width="150" height="150" alt="Profibild" />
+              <div class="profilepic__content">
+                  <label class="profilepic__icon" for="filePhoto"><i class="fas fa-camera"></i></label>
+                  <label class="profilepic__text" for="filePhoto">CAMBIAR IMAGEN</label>
+                  <input type="file" name="filePhoto" id="filePhoto" (change)="changePhotoURL($event)" style="display: none;">
+              </div>
             </div>
+          </div>
+        <div class="group mt-4">      
+          <input type="text" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Nombre del negocio</label>
         </div>
-    </form> -->
-    <div class="container">
-        <div class="abs-center">
-          <form action="#" class="border p-3 form">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" class="form-control">
-            </div>
-            <div class="row">
-              <button class="btn btn-primary col-6"><span aria-hidden="true">&laquo;</span></button>
-              <button class="btn btn-primary col-6"><span aria-hidden="true">&raquo;</span></button>
-            </div>
-            <div class="row">
-              <button type="submit" class="btn btn-primary btn-block w-100">Login</button>
-            </div>
-          </form>
+        <div class="group">      
+          <input type="text" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Telefono</label>
         </div>
-      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="button" (click)="partFinish = true" >Siguiente</button>
+        </ng-template>
+        <ng-template #partTwo>
+          <div class="group mt-3">      
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Pais</label>
+          </div>
+          <div class="group">      
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Ciudad</label>
+          </div>
+          <div class="group">      
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Dirrecion</label>
+          </div>
+<div class="row">
+<div class="btn-group">
+  <button class="col-md-4 btn btn-lg btn-danger" type="button" (click)="partFinish = false">Atras</button>
+  <button class="col-md-8 btn btn-lg btn-success" type="submit" >Finalizar</button>
+</div>
+</div>
+        </ng-template>
+      </form>
+  </div>
 </div>
